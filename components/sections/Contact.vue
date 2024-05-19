@@ -29,7 +29,7 @@ onUnmounted(() => {
 <template>
   <section
     id="contact"
-    class="contact absolute h-full w-full bottom-0 transform -translate-x-1/2 left-1/2 bg-[var(--bg-color)]"
+    class="contact fixed main-container w-full bottom-0 transform -translate-x-1/2 left-1/2 bg-[var(--bg-color)]"
     :class="active === '' ? 'overflow-y-auto' : ' overflow-hidden'"
   >
     <Transition name="fadeIn" mode="out-in">

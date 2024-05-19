@@ -1,9 +1,11 @@
 <script setup>
 import { storeToRefs } from "pinia";
 import { useSelectedSectionStore } from "~/stores/selectedSection";
+import { useHeaderSectionStore } from "~/stores/headerSection";
 
 const { currentSection, active } = storeToRefs(useSelectedSectionStore());
 const { setActive, setSelectedSection } = useSelectedSectionStore();
+const { setHideNavbar } = useHeaderSectionStore();
 const timeoutRef = ref(null);
 const secondtimeoutRef = ref(null);
 timeoutRef.value = setTimeout(() => {
@@ -38,7 +40,7 @@ const selectedSection = (value) => {
 <template>
   <section
     id="home"
-    class="home absolute h-full w-full bottom-0 transform -translate-x-1/2 left-1/2 bg-transparent"
+    class="home fixed main-container w-full bottom-0 transform -translate-x-1/2 left-1/2 bg-transparent"
     :class="active === '' ? 'overflow-y-auto' : ' overflow-hidden'"
   >
     <Transition name="fadeIn" mode="out-in">
@@ -91,13 +93,13 @@ const selectedSection = (value) => {
           <div class="btn-box">
             <button
               class="btn"
-              @click.stop="selectedSection('sections-contact')"
+              @click.stop="selectedSection('sections-contact'), setHideNavbar()"
             >
               Hire Me
             </button>
             <button
               class="btn"
-              @click.stop="selectedSection('sections-contact')"
+              @click.stop="selectedSection('sections-contact'), setHideNavbar()"
             >
               Let's Talk
             </button>

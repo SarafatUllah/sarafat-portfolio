@@ -16,4 +16,8 @@ export default defineNuxtConfig({
     },
   },
   modules: ["@pinia/nuxt"],
+  devServer: {
+    host: "0.0.0.0", // Listen on all network interfaces
+    port: 3000, // Use any port you prefer
+  },
 });

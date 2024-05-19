@@ -1,6 +1,6 @@
 <script setup></script>
 <template>
-  <div class="w-full h-screen">
+  <div class="w-full h-screen overflow-hidden">
     <TheHeader />
     <slot />
   </div>
@@ -25,11 +25,15 @@
 }
 html {
   font-size: 62.5%;
-  overflow-x: hidden;
+  overflow: hidden;
 }
 body {
   background-color: var(--bg-color);
   color: var(--text-color);
+  overflow: hidden;
+}
+.main-container {
+  height: calc(100% - 80px);
 }
 .navbar button:hover,
 .navbar button.active {
@@ -493,6 +497,9 @@ section {
   html {
     font-size: 55%;
   }
+  .main-container {
+    height: calc(100% - 70.39px);
+  }
 }
 @media (max-width: 991px) {
   header {
@@ -580,6 +587,9 @@ section {
 @media (max-width: 520px) {
   html {
     font-size: 50%;
+  }
+  .main-container {
+    height: calc(100% - 64px);
   }
   .home-content h1 {
     display: flex;

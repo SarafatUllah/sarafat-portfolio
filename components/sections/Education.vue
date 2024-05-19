@@ -29,7 +29,7 @@ onUnmounted(() => {
 <template>
   <section
     id="education"
-    class="education absolute h-full w-full bottom-0 transform -translate-x-1/2 left-1/2 bg-[var(--bg-color)]"
+    class="education fixed main-container w-full bottom-0 transform -translate-x-1/2 left-1/2 bg-[var(--bg-color)]"
     :class="active === '' ? 'overflow-y-auto' : ' overflow-hidden'"
   >
     <Transition name="fadeIn" mode="out-in">

@@ -1,9 +1,12 @@
 <script setup>
 import { storeToRefs } from "pinia";
 import { useSelectedSectionStore } from "~/stores/selectedSection";
+import { useHeaderSectionStore } from "~/stores/headerSection";
 
 const { setSelectedSection, setActive } = useSelectedSectionStore();
 const { currentSection } = storeToRefs(useSelectedSectionStore());
+const { setShowNavbar } = useHeaderSectionStore();
+const { showNavbar } = storeToRefs(useHeaderSectionStore());
 const selectedSection = (value) => {
   setShowNavbar();
   if (value !== currentSection.value) {
@@ -13,10 +16,6 @@ const selectedSection = (value) => {
       setSelectedSection(value);
     });
   }
-};
-const showNavbar = ref(false);
-const setShowNavbar = () => {
-  showNavbar.value = !showNavbar.value;
 };
 </script>
 
@@ -35,7 +34,8 @@ const setShowNavbar = () => {
     </div>
     <ClientOnly>
       <div
-        class="text-[3.6rem] text-[var(--text-color)] cursor-pointer lg:hidden"
+        class="text-[3.6rem] text-[var(--text-color)] cursor-pointer lg:hidden text-active"
+        :class="showNavbar ? 'active' : ''"
         @click="setShowNavbar"
       >
         <fa :icon="['fa', 'bars']" />

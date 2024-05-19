@@ -1,11 +1,13 @@
 <script setup>
 import { storeToRefs } from "pinia";
 import { useSelectedSectionStore } from "~/stores/selectedSection";
+import { useHeaderSectionStore } from "~/stores/headerSection";
 
 const { currentSection, currentSectionCookie } = storeToRefs(
   useSelectedSectionStore()
 );
 const { setSelectedSection, setActive } = useSelectedSectionStore();
+const { setHideNavbar } = useHeaderSectionStore();
 onMounted(() => {
   if (currentSectionCookie.value) {
     setActive(currentSectionCookie.value);
@@ -17,9 +19,9 @@ onMounted(() => {
 });
 </script>
 <template>
-  <div id="container" class="w-full h-[calc(100%-80px)] relative pb-10">
+  <div id="container" class="w-full main-container relative pb-10">
     <Transition name="expandCollapse" mode="out-in">
-      <component :is="currentSection"></component>
+      <component :is="currentSection" @click.stop="setHideNavbar"></component>
     </Transition>
   </div>
 </template>

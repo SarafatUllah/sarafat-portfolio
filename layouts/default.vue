@@ -39,7 +39,7 @@ section {
   /* padding: 10rem 9% 2rem; */
 }
 .home-body {
-  background: url("~/assets/img/Untitled design (5).png") no-repeat;
+  background: url(~/assets/img/sarafatbgImage.png) no-repeat;
   background-size: cover;
   background-position: center;
   padding: 10rem 9% 2rem;
@@ -105,7 +105,7 @@ section {
     opacity: 1;
   }
   75%,
-  81%{
+  81% {
     opacity: 0;
   }
 }
@@ -486,7 +486,7 @@ section {
 .contact form .textarea-field textarea {
   resize: none;
 }
-.text-active.active{
+.text-active.active {
   color: var(--main-color);
 }
 @media (max-width: 1200px) {

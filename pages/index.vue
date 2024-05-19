@@ -17,6 +17,7 @@ onMounted(() => {
     setSelectedSection("sections-home");
   }
 });
+
 </script>
 <template>
   <div id="container" class="w-full main-container relative pb-10">

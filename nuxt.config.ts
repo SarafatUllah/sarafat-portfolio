@@ -112,7 +112,27 @@ export default defineNuxtConfig({
       autoprefixer: {},
     },
   },
-  modules: ["@pinia/nuxt"],
+  modules: ["@pinia/nuxt", "@nuxtjs/robots", "@nuxtjs/sitemap"],
+  site: {
+    url: "https://sarafat-portfolio.vercel.app/",
+  },
+
+  sitemap: {
+    xslColumns: [
+      { label: "URL", width: "50%" },
+      { label: "Last Modified", select: "sitemap:lastmod", width: "25%" },
+      { label: "Priority", select: "sitemap:priority", width: "12.5%" },
+    ],
+    xslTips: false,
+    // include all URLs that start with /public
+    include: ["/"],
+  },
+  routeRules: {
+    // modify the sitemap.xml entry for specific URLs
+    "/": {
+      sitemap: { lastmod: "2024-05-19T00:00:00+00:00", priority: 1.0 },
+    },
+  },
   devServer: {
     host: "0.0.0.0", // Listen on all network interfaces
     port: 3000, // Use any port you prefer

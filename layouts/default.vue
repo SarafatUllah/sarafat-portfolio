@@ -1,4 +1,37 @@
-<script setup></script>
+<script setup>
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Personal",
+  name: "Sharp Archive",
+  url: "https://sarafat-portfolio.vercel.app/",
+  logo: "/seo.png",
+  sameAs: [
+    "https://www.facebook.com/md.sarafat.ayon?mibextid=kFxxJD",
+    "https://www.linkedin.com/in/md-sarafat-ullah-7261ba1a4/",
+    // 'https://www.linkedin.com/company/sharp-archive',
+    // 'https://www.instagram.com/sharparchive',
+  ],
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "15, Elephant Road",
+    addressLocality: "Dhaka",
+    addressRegion: "Dhaka",
+    postalCode: "1205",
+    addressCountry: "Bangladesh",
+  },
+};
+// Serialize your schema object to a JSON string
+const serializedSchema = JSON.stringify(organizationSchema);
+useHead({
+  script: [
+    {
+      type: "application/ld+json",
+      children: serializedSchema,
+      id: "organization-schema", // optional: helps with identifying the script tag
+    },
+  ],
+});
+</script>
 <template>
   <div class="w-full h-screen overflow-hidden">
     <TheHeader />

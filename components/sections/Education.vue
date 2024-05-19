@@ -46,15 +46,15 @@ onUnmounted(() => {
       </div>
       <div v-else class="w-full h-full relative education-body py-0 px-[9%]">
         <div
-          class="education-content-body w-full 2xl:h-full flex flex-col items-center justify-center py-[6rem]"
+          class="education-content-body w-full flex flex-col items-center justify-center py-[6rem]"
         >
-          <h3 class="text-white heading relative">
+          <h1 class="text-white heading relative">
             My <span>Journey</span>
             <div
               class="animated absolute transition-all duration-1000 ease-in-out delay-[calc(0.3s*1)] top-0 right-0 h-full bg-[var(--bg-color)]"
               :class="startAnimation ? 'w-0' : 'w-full'"
             ></div>
-          </h3>
+          </h1>
           <div class="education-row w-full">
             <div class="education-column">
               <h3 class="title relative">

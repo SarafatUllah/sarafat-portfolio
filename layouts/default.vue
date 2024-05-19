@@ -94,7 +94,7 @@ section {
   position: relative;
   width: 32.8rem;
 }
-.home-content .text-animation h3 {
+.home-content .text-animation h2 {
   font-size: 3.55rem;
   font-weight: 700;
   color: transparent;
@@ -117,7 +117,7 @@ section {
     background-position: 0 0;
   }
 }
-.home-content .text-animation h3::before {
+.home-content .text-animation h2::before {
   content: "";
   position: absolute;
   top: 0;
@@ -307,7 +307,7 @@ section {
 .about-content-body .about-content {
   text-align: center;
 }
-.about-content h3 {
+.about-content h2 {
   font-size: 2.6rem;
   font-weight: 600;
 }
@@ -327,8 +327,7 @@ section {
 }
 .education .education-row {
   display: flex;
-  flex-wrap: wrap;
-  @apply lg:space-x-20 lg:space-y-0 space-y-20;
+  @apply md:space-x-20 md:flex-nowrap flex-wrap md:space-y-0 space-y-20;
 }
 .education-row .education-column {
   flex: 1 1 40rem;
@@ -398,8 +397,8 @@ section {
 
 .skills .skills-row {
   display: flex;
-  flex-wrap: wrap;
-  @apply lg:space-x-20 lg:space-y-0 space-y-20;
+  /* flex-wrap: wrap; */
+  @apply md:space-x-20 md:flex-nowrap flex-wrap md:space-y-0 space-y-20;
 }
 .skills-row .skills-column {
   flex: 1 1 40rem;

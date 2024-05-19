@@ -48,13 +48,13 @@ onUnmounted(() => {
         <div
           class="skills-content-body w-full flex flex-col items-center justify-center py-[6rem]"
         >
-          <h3 class="text-white heading relative">
+          <h1 class="text-white heading relative">
             My <span>Journey</span>
             <div
               class="animated absolute transition-all duration-1000 ease-in-out delay-[calc(0.3s*1)] top-0 right-0 h-full bg-[var(--second-bg-color)]"
               :class="startAnimation ? 'w-0' : 'w-full'"
             ></div>
-          </h3>
+          </h1>
           <div class="skills-row w-full">
             <div class="skills-column">
               <h3 class="title relative">

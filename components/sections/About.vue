@@ -48,13 +48,13 @@ onUnmounted(() => {
         <div
           class="about-content-body 2xl:h-full flex flex-col items-center justify-center py-[6rem]"
         >
-          <h3 class="text-white heading relative">
+          <h1 class="text-white heading relative">
             About <span>Me</span>
             <div
               class="animated absolute transition-all duration-1000 ease-in-out delay-[calc(0.3s*1)] top-0 right-0 h-full bg-[var(--second-bg-color)]"
               :class="startAnimation ? 'w-0' : 'w-full'"
             ></div>
-          </h3>
+          </h1>
           <div class="about-img">
             <div class="imgae-circle">
               <img src="~/assets/img/about_sarafat.png" alt="Sarafat Photo" />
@@ -66,13 +66,13 @@ onUnmounted(() => {
             ></div>
           </div>
           <div class="about-content relative mt-10">
-            <h3 class="relative">
+            <h2 class="relative">
               Frontend Developer
               <div
                 class="animated absolute transition-all duration-1000 ease-in-out delay-[calc(0.3s*3)] top-0 right-0 h-full bg-[var(--second-bg-color)]"
                 :class="startAnimation ? 'w-0' : 'w-full'"
               ></div>
-            </h3>
+            </h2>
             <div class="relative">
               <p>
                 Hi there! I'm Sarafat Ayon, a Frontend Web Developer with over 3

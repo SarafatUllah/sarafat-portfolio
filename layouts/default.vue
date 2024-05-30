@@ -265,6 +265,7 @@ section {
   position: relative;
   width: 25rem;
   height: 25rem;
+  min-height: 25rem;
   @apply rounded-full;
   display: flex;
   justify-content: center;

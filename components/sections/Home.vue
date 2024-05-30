@@ -67,7 +67,7 @@ const selectedSection = (value) => {
               :class="startAnimation ? 'w-0' : 'w-full'"
             ></div>
           </h1>
-          <div class="text-animation relative">
+          <div class="text-animation relative whitespace-nowrap">
             <h2>Frontend Developer</h2>
             <div
               class="animated absolute transition-all duration-1000 ease-in-out delay-[calc(0.3s*3)] top-0 right-[-1px] h-full bg-[var(--bg-color)]"

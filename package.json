@@ -7,7 +7,9 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "lint:js": "eslint --ext \".js,.vue\" --ignore-path .gitignore .",
+    "lint:js-fix": "eslint --fix --ext \".js,.vue\" --ignore-path .gitignore ."
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.5.2",
@@ -17,6 +19,8 @@
     "@fortawesome/vue-fontawesome": "^3.0.6",
     "@nuxtjs/robots": "^3.0.0",
     "@pinia/nuxt": "^0.5.1",
+    "googleapis": "^144.0.0",
+    "nodemailer": "^6.9.16",
     "nuxt": "^3.11.2",
     "pinia": "^2.1.7",
     "vue": "^3.4.27",
@@ -24,6 +28,7 @@
   },
   "devDependencies": {
     "@nuxtjs/sitemap": "^5.1.5",
+    "@types/nodemailer": "^6",
     "autoprefixer": "^10.4.19",
     "postcss": "^8.4.38",
     "tailwindcss": "^3.4.3"

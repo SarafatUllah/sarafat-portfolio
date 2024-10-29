@@ -22,6 +22,8 @@ export default defineEventHandler(async (event) => {
   try {
     const accessToken = await oAuth2Client.getAccessToken();
 
+    console.log(accessToken, 'accessToken')
+
     if (!accessToken.token) {
       throw new Error("Failed to retrieve access token");
     }

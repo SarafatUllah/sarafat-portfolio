@@ -101,6 +101,13 @@ export default defineNuxtConfig({
     pageTransition: { name: "page", mode: "out-in" },
     layoutTransition: { name: "layout", mode: "out-in" },
   },
+  runtimeConfig: {
+    client_id: process.env.NUXT_CLIENT_ID,
+    client_secret: process.env.NUXT_CLIENT_SECRET,
+    redirect_uri: process.env.NUXT_REDIRECT_URI,
+    refresh_token: process.env.NUXT_REFRESH_TOKEN,
+    email: process.env.NUXT_PRIVATE_EMAIL,
+  },
   components: {
     global: true,
     dirs: ["~/components"],

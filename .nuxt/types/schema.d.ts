@@ -18,6 +18,16 @@ declare module 'nuxt/schema' {
       cdnURL: string,
    },
 
+   client_id: string,
+
+   client_secret: string,
+
+   redirect_uri: string,
+
+   refresh_token: string,
+
+   email: string,
+
    sitemap: {
       isI18nMapped: boolean,
 

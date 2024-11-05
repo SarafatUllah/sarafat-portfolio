@@ -526,6 +526,12 @@ section {
 .text-active.active {
   color: var(--main-color);
 }
+.toasted-bg-success{
+  background-color: #00abf0;
+}
+.toasted-bg-error{
+  background-color: #a22a2a
+}
 @media (max-width: 1200px) {
   html {
     font-size: 55%;

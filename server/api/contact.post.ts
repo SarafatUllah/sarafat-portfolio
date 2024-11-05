@@ -7,39 +7,42 @@ export default defineEventHandler(async (event) => {
   const { fullName, emailAddress, mobileNumber, emailSubject, message } = body;
 
   const config = useRuntimeConfig();
-  const CLIENT_ID = config.client_id;
-  const CLIENT_SECRET = config.client_secret;
-  const REDIRECT_URI = config.redirect_uri;
-  const REFRESH_TOKEN = config.refresh_token;
+  // const CLIENT_ID = config.client_id;
+  // const CLIENT_SECRET = config.client_secret;
+  // const REDIRECT_URI = config.redirect_uri;
+  // const REFRESH_TOKEN = config.refresh_token;
 
-  const oAuth2Client = new google.auth.OAuth2(
-    CLIENT_ID,
-    CLIENT_SECRET,
-    REDIRECT_URI
-  );
-  oAuth2Client.setCredentials({ refresh_token: REFRESH_TOKEN });
-
+  // const oAuth2Client = new google.auth.OAuth2(
+  //   CLIENT_ID,
+  //   CLIENT_SECRET,
+  //   REDIRECT_URI
+  // );
+  // oAuth2Client.setCredentials({ refresh_token: REFRESH_TOKEN });
   try {
-    const accessToken = await oAuth2Client.getAccessToken();
+    // let accessToken = await oAuth2Client.getAccessToken();
 
-    console.log(accessToken, 'accessToken')
+    // console.log(accessToken, "accessToken");
 
-    if (!accessToken.token) {
-      throw new Error("Failed to retrieve access token");
-    }
+    // if (!accessToken.token) {
+    //   throw new Error("Failed to retrieve access token");
+    // }
 
     const transporter = nodemailer.createTransport({
       host: "smtp.gmail.com",
       port: 465,
       secure: true, // true for port 465
       auth: {
-        type: "OAuth2",
         user: config.email,
-        clientId: CLIENT_ID,
-        clientSecret: CLIENT_SECRET,
-        refreshToken: REFRESH_TOKEN,
-        accessToken: accessToken.token, // Use accessToken.token directly
+        pass: config.password,
       },
+      // auth: {
+      //   type: "OAuth2",
+      //   user: config.email,
+      //   clientId: CLIENT_ID,
+      //   clientSecret: CLIENT_SECRET,
+      //   refreshToken: REFRESH_TOKEN,
+      //   accessToken: accessToken.token, // Use accessToken.token directly
+      // },
     } as SMTPTransport.Options);
 
     const mailOptions = {

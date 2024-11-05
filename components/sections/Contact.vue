@@ -1,6 +1,15 @@
 <script setup>
 import { storeToRefs } from "pinia";
 import { useSelectedSectionStore } from "~/stores/selectedSection";
+import { useVuelidate } from "@vuelidate/core";
+import {
+  required,
+  minLength,
+  email,
+  maxLength,
+  helpers,
+} from "@vuelidate/validators";
+import { useInputValidations } from "~/composables/useValidations";
 
 const { currentSection, active } = storeToRefs(useSelectedSectionStore());
 const { setActive } = useSelectedSectionStore();
@@ -17,6 +26,19 @@ const userInfo = ref({
   emailSubject: "",
   message: "",
 });
+
+// validations
+const rules = {
+  fullName: { required, maxLength: maxLength(20) },
+  emailAddress: {
+    required,
+    email,
+  },
+  emailSubject: { required, maxLength: maxLength(20) },
+  message: { required, maxLength: maxLength(1200) },
+};
+const v$ = useVuelidate(rules, userInfo);
+
 onMounted(() => {
   secondtimeoutRef.value = setTimeout(() => {
     startAnimation.value = true;
@@ -35,28 +57,32 @@ onUnmounted(() => {
 const isProcessing = ref(false);
 const { $toast } = useNuxtApp();
 const submitContact = async () => {
-  isProcessing.value = true;
   $toast("clear");
-  try {
-    const response = await $fetch(`/api/contact`, {
-      method: "POST",
-      body: userInfo.value,
-    });
-    isProcessing.value = false;
-    if (response.success) {
-      $toast("success", {
-        message: response.message,
-        className: "toasted-bg-success",
+  v$.value.$touch();
+  if (!v$.value.$invalid) {
+    isProcessing.value = true;
+    try {
+      const response = await $fetch(`/api/contact`, {
+        method: "POST",
+        body: userInfo.value,
       });
-    } else {
-      $toast("error", {
-        message: response.message,
-        className: "toasted-bg-alert",
-      });
+      v$.value.$reset();
+      isProcessing.value = false;
+      if (response.success) {
+        $toast("success", {
+          message: response.message,
+          className: "toasted-bg-success",
+        });
+      } else {
+        $toast("error", {
+          message: response.message,
+          className: "toasted-bg-alert",
+        });
+      }
+    } catch (error) {
+      isProcessing.value = false;
+      console.error(error);
     }
-  } catch (error) {
-    isProcessing.value = false;
-    console.error(error);
   }
 };
 </script>
@@ -89,29 +115,33 @@ const submitContact = async () => {
               :class="startAnimation ? 'w-0' : 'w-full'"
             ></div>
           </h1>
-          <form method="POST" @submit.prevent="submitContact()">
+          <form novalidate method="POST" @submit.prevent="submitContact()">
             <div class="input-box">
-              <div class="input-field">
-                <input
-                  v-model="userInfo.fullName"
+              <div class="input-field relative">
+                <InputsText
+                  id="firstname"
+                  v-model.trim="v$.fullName.$model"
                   type="text"
-                  placeholder="Full Name"
-                  required
+                  place-holder="Full Name"
+                  name="firstname"
+                  :error="v$.fullName.$error"
+                  :error-message="v$.fullName.$errors"
                 />
-                <span class="focus"></span>
                 <div
                   class="animated z-10 absolute transition-all duration-1000 ease-in-out delay-[calc(0.3s*2)] top-[-1px] right-[-1px] h-[103%] bg-[var(--bg-color)]"
                   :class="startAnimation ? 'w-0' : 'w-[103%] '"
                 ></div>
               </div>
               <div class="input-field">
-                <input
-                  v-model="userInfo.emailAddress"
+                <InputsText
+                  id="emailAddress"
+                  v-model.trim="v$.emailAddress.$model"
                   type="email"
-                  placeholder="Email Address"
-                  required
+                  place-holder="Email Address"
+                  name="email"
+                  :error="v$.emailAddress.$error"
+                  :error-message="v$.emailAddress.$errors"
                 />
-                <span class="focus"></span>
                 <div
                   class="animated z-10 absolute transition-all duration-1000 ease-in-out delay-[calc(0.3s*3)] top-[-1px] right-[-1px] h-[103%] bg-[var(--bg-color)]"
                   :class="startAnimation ? 'w-0' : 'w-[103%] '"
@@ -133,13 +163,15 @@ const submitContact = async () => {
                 ></div>
               </div>
               <div class="input-field">
-                <input
-                  v-model="userInfo.emailSubject"
+                <InputsText
+                  id="emailSubject"
+                  v-model.trim="v$.emailSubject.$model"
                   type="text"
-                  placeholder="Email Subject"
-                  required
+                  place-holder="Email Subject"
+                  name="subject"
+                  :error="v$.emailSubject.$error"
+                  :error-message="v$.emailSubject.$errors"
                 />
-                <span class="focus"></span>
                 <div
                   class="animated z-10 absolute transition-all duration-1000 ease-in-out delay-[calc(0.3s*5)] top-[-1px] right-[-1px] h-[103%] bg-[var(--bg-color)]"
                   :class="startAnimation ? 'w-0' : 'w-[103%] '"
@@ -147,15 +179,16 @@ const submitContact = async () => {
               </div>
             </div>
             <div class="textarea-field relative">
-              <textarea
-                name=""
-                id=""
-                v-model="userInfo.message"
-                cols="30"
-                rows="10"
-                placeholder="Your Message"
-                required
-              ></textarea>
+              <InputsTextarea
+                id="message"
+                v-model.trim="v$.message.$model"
+                place-holder="Your Message"
+                name="message"
+                :cols="30"
+                :rows="10"
+                :error="v$.message.$error"
+                :error-message="v$.message.$errors"
+              ></InputsTextarea>
               <span class="focus"></span>
               <div
                 class="animated z-10 absolute transition-all duration-1000 ease-in-out delay-[calc(0.3s*6)] top-[-1px] right-[-1px] h-[103%] bg-[var(--bg-color)]"

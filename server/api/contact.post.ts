@@ -63,8 +63,13 @@ export default defineEventHandler(async (event) => {
     };
 
     await transporter.sendMail(mailOptions);
-    return { status: "success", message: "Email sent successfully" };
+    return { status: "200", success: true, message: "Email sent successfully" };
   } catch (error) {
-    return { status: "error", message: "Failed to send email", error };
+    return {
+      status: "400",
+      success: false,
+      message: "Failed to send email",
+      error,
+    };
   }
 });

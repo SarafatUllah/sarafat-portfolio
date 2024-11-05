@@ -479,6 +479,9 @@ section {
   width: 49%;
   margin: 0.8rem 0;
 }
+.contact form .textarea-field{
+  margin-bottom: 2.7rem;
+}
 .contact form .input-box .input-field input,
 .contact form .textarea-field textarea {
   width: 100%;
@@ -510,14 +513,14 @@ section {
   transition: 0.5s;
 }
 .contact form .input-box .input-field input:focus ~ .focus,
-.contact form .input-box .input-field input:valid ~ .focus,
-.contact form .textarea-field textarea:focus ~ .focus,
-.contact form .textarea-field textarea:valid ~ .focus {
+/* .contact form .input-box .input-field input:valid ~ .focus, */
+.contact form .textarea-field textarea:focus ~ .focus
+/* .contact form .textarea-field textarea:valid ~ .focus */ {
   width: 100%;
 }
 .contact form .textarea-field textarea {
   position: relative;
-  margin: 0.8rem 0 2.7rem;
+  margin: 0.8rem 0 0rem;
   display: flex;
 }
 .contact form .textarea-field textarea {
@@ -526,11 +529,11 @@ section {
 .text-active.active {
   color: var(--main-color);
 }
-.toasted-bg-success{
+.toasted-bg-success {
   background-color: #00abf0;
 }
-.toasted-bg-error{
-  background-color: #a22a2a
+.toasted-bg-error {
+  background-color: #a22a2a;
 }
 @media (max-width: 1200px) {
   html {

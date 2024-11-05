@@ -1,6 +1,8 @@
 
 interface _GlobalComponents {
       'TheHeader': typeof import("../components/TheHeader.vue")['default']
+    'InputsText': typeof import("../components/inputs/text.vue")['default']
+    'InputsTextarea': typeof import("../components/inputs/textarea.vue")['default']
     'SectionsAbout': typeof import("../components/sections/About.vue")['default']
     'SectionsContact': typeof import("../components/sections/Contact.vue")['default']
     'SectionsEducation': typeof import("../components/sections/Education.vue")['default']
@@ -30,6 +32,8 @@ interface _GlobalComponents {
     'Html': typeof import("../node_modules/nuxt/dist/head/runtime/components")['Html']
     'Body': typeof import("../node_modules/nuxt/dist/head/runtime/components")['Body']
       'LazyTheHeader': typeof import("../components/TheHeader.vue")['default']
+    'LazyInputsText': typeof import("../components/inputs/text.vue")['default']
+    'LazyInputsTextarea': typeof import("../components/inputs/textarea.vue")['default']
     'LazySectionsAbout': typeof import("../components/sections/About.vue")['default']
     'LazySectionsContact': typeof import("../components/sections/Contact.vue")['default']
     'LazySectionsEducation': typeof import("../components/sections/Education.vue")['default']
@@ -73,6 +77,8 @@ declare module 'vue' {
 }
 
 export const TheHeader: typeof import("../components/TheHeader.vue")['default']
+export const InputsText: typeof import("../components/inputs/text.vue")['default']
+export const InputsTextarea: typeof import("../components/inputs/textarea.vue")['default']
 export const SectionsAbout: typeof import("../components/sections/About.vue")['default']
 export const SectionsContact: typeof import("../components/sections/Contact.vue")['default']
 export const SectionsEducation: typeof import("../components/sections/Education.vue")['default']
@@ -102,6 +108,8 @@ export const Head: typeof import("../node_modules/nuxt/dist/head/runtime/compone
 export const Html: typeof import("../node_modules/nuxt/dist/head/runtime/components")['Html']
 export const Body: typeof import("../node_modules/nuxt/dist/head/runtime/components")['Body']
 export const LazyTheHeader: typeof import("../components/TheHeader.vue")['default']
+export const LazyInputsText: typeof import("../components/inputs/text.vue")['default']
+export const LazyInputsTextarea: typeof import("../components/inputs/textarea.vue")['default']
 export const LazySectionsAbout: typeof import("../components/sections/About.vue")['default']
 export const LazySectionsContact: typeof import("../components/sections/Contact.vue")['default']
 export const LazySectionsEducation: typeof import("../components/sections/Education.vue")['default']

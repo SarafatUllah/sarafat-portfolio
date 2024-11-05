@@ -113,6 +113,7 @@ declare global {
   const useHeaderSectionStore: typeof import('../../stores/headerSection')['useHeaderSectionStore']
   const useHydration: typeof import('../../node_modules/nuxt/dist/app/composables/hydrate')['useHydration']
   const useId: typeof import('../../node_modules/nuxt/dist/app/composables/id')['useId']
+  const useInputValidations: typeof import('../../composables/useValidations')['useInputValidations']
   const useLazyAsyncData: typeof import('../../node_modules/nuxt/dist/app/composables/asyncData')['useLazyAsyncData']
   const useLazyFetch: typeof import('../../node_modules/nuxt/dist/app/composables/fetch')['useLazyFetch']
   const useLink: typeof import('../vue-router-stub')['useLink']
@@ -276,6 +277,7 @@ declare module 'vue' {
     readonly useHeaderSectionStore: UnwrapRef<typeof import('../../stores/headerSection')['useHeaderSectionStore']>
     readonly useHydration: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/hydrate')['useHydration']>
     readonly useId: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/id')['useId']>
+    readonly useInputValidations: UnwrapRef<typeof import('../../composables/useValidations')['useInputValidations']>
     readonly useLazyAsyncData: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/asyncData')['useLazyAsyncData']>
     readonly useLazyFetch: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/fetch')['useLazyFetch']>
     readonly useLink: UnwrapRef<typeof import('../vue-router-stub')['useLink']>
@@ -432,6 +434,7 @@ declare module '@vue/runtime-core' {
     readonly useHeaderSectionStore: UnwrapRef<typeof import('../../stores/headerSection')['useHeaderSectionStore']>
     readonly useHydration: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/hydrate')['useHydration']>
     readonly useId: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/id')['useId']>
+    readonly useInputValidations: UnwrapRef<typeof import('../../composables/useValidations')['useInputValidations']>
     readonly useLazyAsyncData: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/asyncData')['useLazyAsyncData']>
     readonly useLazyFetch: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/fetch')['useLazyFetch']>
     readonly useLink: UnwrapRef<typeof import('../vue-router-stub')['useLink']>

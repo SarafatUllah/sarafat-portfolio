@@ -107,6 +107,7 @@ export default defineNuxtConfig({
     redirect_uri: process.env.NUXT_REDIRECT_URI,
     refresh_token: process.env.NUXT_REFRESH_TOKEN,
     email: process.env.NUXT_PRIVATE_EMAIL,
+    password: process.env.NUXT_PRIVATE_PASSWORD,
   },
   components: {
     global: true,

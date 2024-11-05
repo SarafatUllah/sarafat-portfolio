@@ -33,8 +33,10 @@ onUnmounted(() => {
   }
 });
 const isProcessing = ref(false);
+const { $toast } = useNuxtApp();
 const submitContact = async () => {
   isProcessing.value = true;
+  $toast("clear");
   try {
     const response = await $fetch(`/api/contact`, {
       method: "POST",
@@ -42,9 +44,15 @@ const submitContact = async () => {
     });
     isProcessing.value = false;
     if (response.success) {
-      console.log(response.message)
+      $toast("success", {
+        message: response.message,
+        className: "toasted-bg-success",
+      });
     } else {
-      console.log(response.message, response.error)
+      $toast("error", {
+        message: response.message,
+        className: "toasted-bg-alert",
+      });
     }
   } catch (error) {
     isProcessing.value = false;

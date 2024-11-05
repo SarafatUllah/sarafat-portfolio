@@ -28,6 +28,8 @@ declare module 'nuxt/schema' {
 
    email: string,
 
+   password: string,
+
    sitemap: {
       isI18nMapped: boolean,
 
